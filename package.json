@@ -17,6 +17,5 @@
     "vitepress": "^1.0.0-alpha.22",
     "vue": "^3.2.41"
   },
-  "repository": "git@github.com:ZhangHang12135/docs.git",
-  "private": true
+  "repository": "git@github.com:ZhangHang12135/docs.git"
 }
