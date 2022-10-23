@@ -30,23 +30,21 @@ export default {
                 text: '博客',
                 link: 'https://zhanghang12135.github.io/'
             },
-            {
-                text: 'Dropdown Menu',
-                items: [
-                  { text: 'Item A', link: '/item-1' },
-                  { text: 'Item B', link: '/item-2' },
-                  { text: 'Item C', link: '/item-3' }
-                ]
-              }
         ],
         sidebar: [
             {
-                text: 'Guide',
+                text: '算法',
                 items: [
-                  { text: 'Introduction', link: '/introduction' },
-                  { text: 'Getting Started', link: '/getting-started' },
+                  { text: '回溯算法', link: '/算法/回溯算法' },
+                  { text: '动态规划', link: '/算法/动态规划' },
                 ],
-            }
+            },
+            {
+              text: '杂文',
+              items: [
+                { text: '年终总结', link: '/算法/回溯算法' },
+              ],
+          }
         ],
         // 文章大纲的层级
         outline: 2,
