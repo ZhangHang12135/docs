@@ -1,0 +1,70 @@
+export default {
+    title: '灰沙',
+    titleTemplate: '成功的人抄袭，伟大的人剽窃',
+    base: '/docs/',
+    description: '成功的人抄袭，伟大的人剽窃',
+    // 默认语言
+    lang: 'en-ZH',
+    // 显示上次更新时间
+    lastUpdated: true,
+    cleanUrls: 'with-subfolders',
+    head: [
+      [
+        'link',
+        { rel: 'apple-touch-icon', sizes: '180x180', href: './logo.jpg'}
+      ],
+      [
+        'link',
+        { rel: 'icon', sizes: '16x16', href: './logo.jpg'}
+      ],
+      [
+        'link',
+        { rel: 'icon', sizes: '32x32', href: './logo.jpg'}
+      ],
+    ],
+    themeConfig: {
+        siteTitle: '灰沙',
+        logo: '/logo.jpg',
+        nav: [
+            {
+                text: '博客',
+                link: 'https://zhanghang12135.github.io/'
+            },
+            {
+                text: 'Dropdown Menu',
+                items: [
+                  { text: 'Item A', link: '/item-1' },
+                  { text: 'Item B', link: '/item-2' },
+                  { text: 'Item C', link: '/item-3' }
+                ]
+              }
+        ],
+        sidebar: [
+            {
+                text: 'Guide',
+                items: [
+                  { text: 'Introduction', link: '/introduction' },
+                  { text: 'Getting Started', link: '/getting-started' },
+                ],
+            }
+        ],
+        // 文章大纲的层级
+        outline: 2,
+        outlineText: '灰沙',
+        socialLinks: [
+            { icon: 'github', link: 'https://github.com/zhanghang12135' },
+            // You can also add custom icons by passing SVG as string:
+            // {
+            //   icon: {
+            //     svg: '<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Dribbble</title><path d="M12...6.38z"/></svg>'
+            //   },
+            //   link: '...'
+            // }
+        ],
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2019-present Evan You'
+          }
+    }
+  }
+  

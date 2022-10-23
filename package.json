@@ -1,0 +1,22 @@
+{
+  "name": "vite-press",
+  "version": "1.0.0",
+  "description": "笔记",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "keywords": [
+    "vitepress"
+  ],
+  "author": "zhanghang12135",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.22",
+    "vue": "^3.2.41"
+  },
+  "repository": "git@github.com:ZhangHang12135/docs.git",
+  "private": true
+}
