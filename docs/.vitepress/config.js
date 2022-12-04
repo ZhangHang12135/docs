@@ -25,30 +25,40 @@ export default {
     themeConfig: {
         siteTitle: '灰沙',
         logo: '/logo.jpg',
+        // 顶部导航
         nav: [
             {
                 text: '博客',
                 link: 'https://zhanghang12135.github.io/'
             },
         ],
+        // 侧边栏
         sidebar: [
             {
                 text: '算法',
                 items: [
-                  { text: '回溯算法', link: '/算法/回溯算法' },
-                  { text: '动态规划', link: '/算法/动态规划' },
+                  // { text: '回溯算法', link: '/算法/回溯算法' },
+                  // { text: '动态规划', link: '/算法/动态规划' },
+                ],
+            },
+            {
+                text: '设计模式',
+                items: [
+                  { text: '单例模式', link: '/设计模式/单例模式' },
                 ],
             },
             {
               text: '杂文',
               items: [
-                { text: '年终总结', link: '/算法/回溯算法' },
+                // { text: '年终总结', link: '/杂文/web3.0' },
+                // { text: 'web3.0', link: '/杂文/web3.0'},
               ],
           }
         ],
         // 文章大纲的层级
-        outline: 2,
-        outlineText: '灰沙',
+        outline: [2, 6],
+        // 文章右侧目录标题
+        outlineTitle: '目录',
         socialLinks: [
             { icon: 'github', link: 'https://github.com/zhanghang12135' },
             // You can also add custom icons by passing SVG as string:
