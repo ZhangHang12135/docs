@@ -35,6 +35,21 @@ export default {
         // 侧边栏
         sidebar: [
             {
+              text: '技术',
+              items: [
+                { 
+                  text: 'git',
+                  items: [
+                    {
+                      text: 'git的工作原理',
+                      link: '/技术/git/git的工作原理'
+                    }
+                  ]
+                },
+                // { text: '动态规划', link: '/算法/动态规划' },
+              ],
+            },
+            {
                 text: '算法',
                 items: [
                   // { text: '回溯算法', link: '/算法/回溯算法' },
@@ -45,6 +60,7 @@ export default {
                 text: '设计模式',
                 items: [
                   { text: '单例模式', link: '/设计模式/单例模式' },
+                  { text: '策略模式', link: '/设计模式/策略模式' },
                 ],
             },
             {
