@@ -43,12 +43,23 @@ export default {
                     {
                       text: 'git的工作原理',
                       link: '/技术/git/git的工作原理'
+                    },
+                    {
+                      text: 'git的常用命令',
+                      link: '/技术/git/git的常用命令'
                     }
                   ]
                 },
                 // { text: '动态规划', link: '/算法/动态规划' },
               ],
             },
+            {
+              text: '源码',
+              items: [
+                { text: 'sentry', link: '/源码/sentry' },
+                // { text: '动态规划', link: '/算法/动态规划' },
+              ],
+          },
             {
                 text: '算法',
                 items: [
