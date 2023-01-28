@@ -154,3 +154,35 @@ git restore <file>
 git checkout -- .
 // 用于 一些测试demo 的丢弃，它是用最近的版本覆盖工作区
 ```
+
+## 远程仓库相关
+### git remote
+查看远程仓库
+```
+git remote 
+// 查看远程仓库
+git remote add <shortname> <url>
+$ git remote add pb https://github.com/paulboone/ticgit
+// 添加一个新的远程仓库
+
+git remote show origin
+// 查看远程仓库信息
+$ git remote rename pb paul
+修改一个远程仓库的简写名
+$ git remote remove <name>
+// 删除一个远程仓库
+```
+你至少可以看到origin, 这是git给的默认名字。
+
+### git fetch
+这个命令会访问远程仓库，从中拉取所有你还没有的数据
+
+### git pull
+自动抓取后合并该远程分支到当前分支
+
+### git push
+```
+git push <remote> <branch>
+默认情况
+git push  === git push origin master
+```
