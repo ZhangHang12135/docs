@@ -7,7 +7,7 @@
     <meta name="description" content="成功的人抄袭，伟大的人剽窃">
     <link rel="stylesheet" href="/docs/assets/style.1ecf0da9.css">
     <link rel="modulepreload" href="/docs/assets/app.e9a19b08.js">
-    <link rel="modulepreload" href="/docs/assets/技术_git_git的常用命令.md.00b3b86e.lean.js">
+    <link rel="modulepreload" href="/docs/assets/技术_git_git的常用命令.md.e02761b0.lean.js">
     
     <link rel="apple-touch-icon" sizes="180x180" href="./logo.jpg">
   <link rel="icon" sizes="16x16" href="./logo.jpg">
@@ -25,8 +25,44 @@
 <span class="line"><span style="color:#A6ACCD;">** 例如 你想要知道 config 的相关命令</span></span>
 <span class="line"><span style="color:#A6ACCD;">git help config</span></span>
 <span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-init" tabindex="-1">git init <a class="header-anchor" href="#git-init" aria-hidden="true">#</a></h2><p>初始化git 仓库，就是在当前目录创建 .git 文件夹</p><h2 id="git-clone" tabindex="-1">git clone <a class="header-anchor" href="#git-clone" aria-hidden="true">#</a></h2><p>克隆远程仓库</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git clone xxx</span></span>
-<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-cfb513e0 data-v-21f75714><div class="edit-info" data-v-21f75714><!----><div class="last-updated" data-v-21f75714><p class="VPLastUpdated" data-v-21f75714 data-v-18fe8fc2>Last updated: <time datetime="2023-01-12T08:40:04.000Z" data-v-18fe8fc2></time></p></div></div><div class="prev-next" data-v-21f75714><div class="pager" data-v-21f75714><a class="pager-link prev" href="/docs/%E6%8A%80%E6%9C%AF/git/git%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" data-v-21f75714><span class="desc" data-v-21f75714>Previous page</span><span class="title" data-v-21f75714>git的工作原理</span></a></div><div class="has-prev pager" data-v-21f75714><a class="pager-link next" href="/docs/%E6%BA%90%E7%A0%81/sentry" data-v-21f75714><span class="desc" data-v-21f75714>Next page</span><span class="title" data-v-21f75714>sentry</span></a></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-f44a984a data-v-9f24cc86><div class="container" data-v-9f24cc86><p class="message" data-v-9f24cc86>Released under the MIT License.</p><p class="copyright" data-v-9f24cc86>Copyright © 2019-present Evan You</p></div></footer><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"2a64fd2b\",\"技术_git_git的工作原理.md\":\"e887469b\",\"技术_git_git的常用命令.md\":\"00b3b86e\",\"源码_sentry.md\":\"aa0c629b\",\"算法_二叉树.md\":\"447a64d4\",\"算法_回溯算法.md\":\"5b4acacd\",\"设计模式_代理模式.md\":\"847ba46d\",\"设计模式_单例模式.md\":\"466faa36\",\"设计模式_策略模式.md\":\"8d7dc602\"}")</script>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-status" tabindex="-1">git status <a class="header-anchor" href="#git-status" aria-hidden="true">#</a></h2><p>查看文件处于什么状态</p><p>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git status</span></span>
+<span class="line"><span style="color:#A6ACCD;">git status -s // 简短输出</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 用例  //</span></span>
+<span class="line"><span style="color:#A6ACCD;">$ git status -s</span></span>
+<span class="line"><span style="color:#A6ACCD;"> M README</span></span>
+<span class="line"><span style="color:#A6ACCD;">MM Rakefile</span></span>
+<span class="line"><span style="color:#A6ACCD;">A  lib/git.rb</span></span>
+<span class="line"><span style="color:#A6ACCD;">M  lib/simplegit.rb</span></span>
+<span class="line"><span style="color:#A6ACCD;">?? LICENSE.txt</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-add" tabindex="-1">git add <a class="header-anchor" href="#git-add" aria-hidden="true">#</a></h2><p>将文件放到暂存区，在工作原理中，我们讲过，暂存区就是一个文件，包含所有需要提交的文件名</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git add xx // 单个文件或文件夹</span></span>
+<span class="line"><span style="color:#A6ACCD;">git add .  // 全部更改</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-diff" tabindex="-1">git diff <a class="header-anchor" href="#git-diff" aria-hidden="true">#</a></h2><p>查看文件的哪些地方发生了变更</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki has-diff"><code><span class="line"><span style="color:#A6ACCD;">git diff </span></span>
+<span class="line"><span style="color:#A6ACCD;">// 比较的是工作目录当前文件和暂存区域快照之间的差异</span></span>
+<span class="line"><span style="color:#A6ACCD;">git diff --staged</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 比对已暂存文件与最后一次提交的文件差异</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-commit" tabindex="-1">git commit <a class="header-anchor" href="#git-commit" aria-hidden="true">#</a></h2><p>提交</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git commit </span></span>
+<span class="line"><span style="color:#A6ACCD;">// 这样会调用系统默认编辑器</span></span>
+<span class="line"><span style="color:#A6ACCD;">git commit -m &#39;xxx&#39;</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 一般都是这样用测，直接就可以提交说明</span></span>
+<span class="line"><span style="color:#A6ACCD;">git commit -a</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 这样会把跟踪过的文件一起提交</span></span>
+<span class="line"><span style="color:#A6ACCD;">git commit -am &#39;xxx&#39;</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 一般这样用， 相当于 git add &amp;&amp; git commit -m &#39;x&#39; ,需要注意，新文件不会提交</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-rm" tabindex="-1">git rm <a class="header-anchor" href="#git-rm" aria-hidden="true">#</a></h2><p>移除文件</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git rm </span></span>
+<span class="line"><span style="color:#A6ACCD;">// 是从暂存区域移除,并连带从工作目录中删除指定的文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">git rm -f</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 全部删除，git也无法恢复</span></span>
+<span class="line"><span style="color:#A6ACCD;">git rm --cached xx</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 从暂存区移除</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="git-mv" tabindex="-1">git mv <a class="header-anchor" href="#git-mv" aria-hidden="true">#</a></h2><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git mv file_from file_to</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">git mv README.md README</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 相当于运行</span></span>
+<span class="line"><span style="color:#A6ACCD;"> mv README.md README</span></span>
+<span class="line"><span style="color:#A6ACCD;">$ git rm README.md</span></span>
+<span class="line"><span style="color:#A6ACCD;">$ git add README</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-cfb513e0 data-v-21f75714><div class="edit-info" data-v-21f75714><!----><div class="last-updated" data-v-21f75714><p class="VPLastUpdated" data-v-21f75714 data-v-18fe8fc2>Last updated: <time datetime="2023-01-28T03:18:52.000Z" data-v-18fe8fc2></time></p></div></div><div class="prev-next" data-v-21f75714><div class="pager" data-v-21f75714><a class="pager-link prev" href="/docs/%E6%8A%80%E6%9C%AF/git/git%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" data-v-21f75714><span class="desc" data-v-21f75714>Previous page</span><span class="title" data-v-21f75714>git的工作原理</span></a></div><div class="has-prev pager" data-v-21f75714><a class="pager-link next" href="/docs/%E6%BA%90%E7%A0%81/sentry" data-v-21f75714><span class="desc" data-v-21f75714>Next page</span><span class="title" data-v-21f75714>sentry</span></a></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-f44a984a data-v-9f24cc86><div class="container" data-v-9f24cc86><p class="message" data-v-9f24cc86>Released under the MIT License.</p><p class="copyright" data-v-9f24cc86>Copyright © 2019-present Evan You</p></div></footer><!--[--><!--]--></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"2a64fd2b\",\"技术_git_git的工作原理.md\":\"e887469b\",\"技术_git_git的常用命令.md\":\"e02761b0\",\"技术_webpack_loader.md\":\"867cab57\",\"源码_sentry.md\":\"aa0c629b\",\"算法_二叉树.md\":\"447a64d4\",\"算法_回溯算法.md\":\"5b4acacd\",\"设计模式_代理模式.md\":\"847ba46d\",\"设计模式_单例模式.md\":\"466faa36\",\"设计模式_策略模式.md\":\"8d7dc602\"}")</script>
     <script type="module" async src="/docs/assets/app.e9a19b08.js"></script>
     
   </body>
