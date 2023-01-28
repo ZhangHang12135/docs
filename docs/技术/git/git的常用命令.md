@@ -129,3 +129,28 @@ $ git log --pretty=format:"%h %s" --graph
 // --graph 是显示分支合并历史
 ```
 [详细的占位符看这里](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2)
+
+## 撤销操作
+### git commit --amend
+修补提交，一般在commit 之后需要再次修改文件的时候使用。只会产生一次commit记录。
+
+### git reset
+取消暂存文件, 这个命令已经不提倡了
+```
+git reset HEAD <file>
+// 这个命令会将暂存文件修改为未暂存状态
+```
+### `git restore`
+现在取消暂存或者丢弃修改，git 会提示使用 git restore(也就是git status 提示的命令)
+```
+git restore --staged <file>
+// 取消暂存
+git restore <file>
+// 丢弃修改
+```
+### git checkout 
+旧版本的丢弃修改
+```
+git checkout -- .
+// 用于 一些测试demo 的丢弃，它是用最近的版本覆盖工作区
+```
