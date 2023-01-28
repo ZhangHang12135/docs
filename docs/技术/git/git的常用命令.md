@@ -35,3 +35,69 @@ git help config
 ```
 git clone xxx
 ```
+## git status
+查看文件处于什么状态
+
+新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。 输出中有两栏，左栏指明了暂存区的状态，右栏指明了工作区的状态。
+```
+git status
+git status -s // 简短输出
+// 用例  //
+$ git status -s
+ M README
+MM Rakefile
+A  lib/git.rb
+M  lib/simplegit.rb
+?? LICENSE.txt
+```
+
+## git add
+将文件放到暂存区，在工作原理中，我们讲过，暂存区就是一个文件，包含所有需要提交的文件名
+```
+git add xx // 单个文件或文件夹
+git add .  // 全部更改
+```
+
+## git diff 
+查看文件的哪些地方发生了变更
+```
+git diff 
+// 比较的是工作目录当前文件和暂存区域快照之间的差异
+git diff --staged
+// 比对已暂存文件与最后一次提交的文件差异
+```
+
+## git commit 
+提交
+```
+git commit 
+// 这样会调用系统默认编辑器
+git commit -m 'xxx'
+// 一般都是这样用测，直接就可以提交说明
+git commit -a
+// 这样会把跟踪过的文件一起提交
+git commit -am 'xxx'
+// 一般这样用， 相当于 git add && git commit -m 'x' ,需要注意，新文件不会提交
+```
+
+## git rm
+移除文件
+```
+git rm 
+// 是从暂存区域移除,并连带从工作目录中删除指定的文件
+git rm -f
+// 全部删除，git也无法恢复
+git rm --cached xx
+// 从暂存区移除
+```
+
+## git mv
+```
+git mv file_from file_to
+
+git mv README.md README
+// 相当于运行
+ mv README.md README
+$ git rm README.md
+$ git add README
+```
