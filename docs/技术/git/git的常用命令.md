@@ -186,3 +186,33 @@ git push <remote> <branch>
 默认情况
 git push  === git push origin master
 ```
+
+## git 标签
+`轻量标签` 很像一个不会改变的分支——它只是某个特定提交的引用
+
+`附注标签`是存储在 Git 数据库中的一个完整对象
+```
+git tag
+// 列出所有标签
+git tag -l "v1.8"
+// 列出1.8相关的
+git tag 1.0
+// 打上了轻量标签
+git tag -a 1.0 -m "first tag"
+// 附注标签
+$ git show v1.4
+// 查看标签信息
+git tag -a v1.2 9fceb02
+// 后期打标签，后面是hash值
+git push origin --tags
+// 同步标签到远程仓库
+$ git tag -d v1.4-lw
+// 删除标签Deleted tag 'v1.4-lw' (was e7d5add)
+```
+## git 别名
+```
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+```
