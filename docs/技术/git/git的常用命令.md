@@ -216,3 +216,52 @@ $ git config --global alias.br branch
 $ git config --global alias.ci commit
 $ git config --global alias.st status
 ```
+## git 分支
+
+### git branch
+git 的分支就是一个可以移动的新的指针， 有一个HEAD指针指向的就是当前本地分支
+```
+git branch testing
+// 创建分支
+git branch -d testing
+// 删除分支
+git branch
+// 查看所有分支
+git branch --merged
+// 查看已经合并到当前分支的分支
+git branch --no-merged
+// 查看所有包含未合并工作的分支
+```
+### git switch || git checkout
+两者都可以切换分支，前者是新出的
+```
+git switch testing
+git checkout testing
+// 如果本地没有testing 分支，远程有的话，会自动创建一个本地分支
+git checkout -b testingA
+// 带有-b 分支可以创建 和 切换
+```
+
+### git merge
+合并分支
+```
+git merge testing
+// 合并 testing 分支到当前分支
+```
+
+### `git rebase`
+[变基操作](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA)
+,这是一个很危险的操作
+
+它的原理是首先找到这两个分支（即当前分支 experiment、变基操作的目标基底分支 master） 的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 C3, 最后以此将之前另存为临时文件的修改依序应用
+```
+git checkout experiment
+git rebase master
+```
+注意： 对于变基，是保持线性历史的手段，但是它会导致实际的提交偏差。变基是将一系列提交按照原有次序依次应用到另一分支上，而合并是把最终结果合在一起。
+
+```
+$ git rebase --onto master server client
+// 选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放
+```
+
