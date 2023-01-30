@@ -7,7 +7,7 @@
     <meta name="description" content="成功的人抄袭，伟大的人剽窃">
     <link rel="stylesheet" href="/docs/assets/style.1ecf0da9.css">
     <link rel="modulepreload" href="/docs/assets/app.e9a19b08.js">
-    <link rel="modulepreload" href="/docs/assets/技术_git_git的常用命令.md.26077419.lean.js">
+    <link rel="modulepreload" href="/docs/assets/技术_git_git的常用命令.md.0f29075c.lean.js">
     
     <link rel="apple-touch-icon" sizes="180x180" href="./logo.jpg">
   <link rel="icon" sizes="16x16" href="./logo.jpg">
@@ -145,8 +145,66 @@
 <span class="line"><span style="color:#A6ACCD;">git rebase master</span></span>
 <span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><p>注意： 对于变基，是保持线性历史的手段，但是它会导致实际的提交偏差。变基是将一系列提交按照原有次序依次应用到另一分支上，而合并是把最终结果合在一起。</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">$ git rebase --onto master server client</span></span>
 <span class="line"><span style="color:#A6ACCD;">// 选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放</span></span>
-<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-cfb513e0 data-v-21f75714><div class="edit-info" data-v-21f75714><!----><div class="last-updated" data-v-21f75714><p class="VPLastUpdated" data-v-21f75714 data-v-18fe8fc2>Last updated: <time datetime="2023-01-29T07:34:34.000Z" data-v-18fe8fc2></time></p></div></div><div class="prev-next" data-v-21f75714><div class="pager" data-v-21f75714><a class="pager-link prev" href="/docs/%E6%8A%80%E6%9C%AF/git/git%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" data-v-21f75714><span class="desc" data-v-21f75714>Previous page</span><span class="title" data-v-21f75714>git的工作原理</span></a></div><div class="has-prev pager" data-v-21f75714><a class="pager-link next" href="/docs/%E6%BA%90%E7%A0%81/sentry" data-v-21f75714><span class="desc" data-v-21f75714>Next page</span><span class="title" data-v-21f75714>sentry</span></a></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-f44a984a data-v-9f24cc86><div class="container" data-v-9f24cc86><p class="message" data-v-9f24cc86>Released under the MIT License.</p><p class="copyright" data-v-9f24cc86>Copyright © 2019-present Evan You</p></div></footer><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"2a64fd2b\",\"技术_git_git的工作原理.md\":\"e887469b\",\"技术_git_git的常用命令.md\":\"26077419\",\"技术_webpack_loader.md\":\"867cab57\",\"源码_sentry.md\":\"aa0c629b\",\"算法_二叉树.md\":\"447a64d4\",\"算法_回溯算法.md\":\"5b4acacd\",\"设计模式_代理模式.md\":\"847ba46d\",\"设计模式_单例模式.md\":\"466faa36\",\"设计模式_策略模式.md\":\"8d7dc602\"}")</script>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="小符号" tabindex="-1">小符号 <a class="header-anchor" href="#小符号" aria-hidden="true">#</a></h2><h3 id="祖先引用" tabindex="-1">祖先引用 ^ <a class="header-anchor" href="#祖先引用" aria-hidden="true">#</a></h3><p>^ 会被解析为上一个提交</p><p>~ 也可以理解为父提交</p><p>HEAD~ === HEAD^</p><p><strong>但是 ^ 后面添加一个数字来指明想要 哪一个 父提交，HEAD^2为 合并提交的第二父提交，并不是父提交的父提交</strong></p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git show HEAD^</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 显示上一个提交</span></span>
+<span class="line"><span style="color:#A6ACCD;">git reset HEAD^</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 回退到上一个版本</span></span>
+<span class="line"><span style="color:#A6ACCD;">git reset HEAD^^ || git reset HEAD~2</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 回退到上两个版本</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h3 id="提交区间" tabindex="-1">提交区间 <a class="header-anchor" href="#提交区间" aria-hidden="true">#</a></h3><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git log master..experiment</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 查看 experiment 分支中还有哪些提交尚未被合并入 master 分支</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">$ git log origin/master..HEAD</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 这个命令会输出在你当前分支中而不在远程 origin 中的提交</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">$ git log master...experiment</span></span>
+<span class="line"><span style="color:#A6ACCD;">// master 或者 experiment 中包含的但不是两者共有的提交，你可以执行：</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="小工具" tabindex="-1">小工具 <a class="header-anchor" href="#小工具" aria-hidden="true">#</a></h2><h3 id="交互暂存-git-add-i" tabindex="-1">交互暂存 git add -i <a class="header-anchor" href="#交互暂存-git-add-i" aria-hidden="true">#</a></h3><p><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9A%82%E5%AD%98" target="_blank" rel="noreferrer">详细的看这里</a></p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki has-diff"><code><span class="line"><span style="color:#A6ACCD;">git add -i</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 会进入暂存的交互界面</span></span>
+<span class="line"><span style="color:#A6ACCD;">*** Commands ***</span></span>
+<span class="line"><span style="color:#A6ACCD;">  1: status	  2: update	  3: revert	  4: add untracked</span></span>
+<span class="line"><span style="color:#A6ACCD;">  5: patch	  6: diff	  7: quit	  8: help</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 5 就是打补丁，可以拆分一个文件的不同提交</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h3 id="贮藏-git-stash" tabindex="-1">贮藏 git stash <a class="header-anchor" href="#贮藏-git-stash" aria-hidden="true">#</a></h3><p>贮藏（stash）会处理工作目录的脏的状态——即跟踪文件的修改与暂存的改动——然后将未完成的修改保存到一个栈上， 而你可以在任何时候重新应用这些改动（甚至在不同的分支上）</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git stash || git stash push</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 推送你的修改到栈上， 正常只会包含暂存的，已修改的，跟踪文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash list</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 查看你的所有stash</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash apply</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 将栈顶的拿出来（也就是你最近的stash）</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash apply stash@{1}</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 拿到第二个</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash pop</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 拿出来之后，就删掉</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash -a</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 贮藏 所有文件，包含没有被跟踪的，忽略的文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash branch testchange</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 会将其stash 放到新的分支上，而不是当前分支</span></span>
+<span class="line"><span style="color:#A6ACCD;">git stash clear</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 清空贮藏栈</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h3 id="清理工作目录-git-clean" tabindex="-1">清理工作目录 git clean <a class="header-anchor" href="#清理工作目录-git-clean" aria-hidden="true">#</a></h3><p><code>谨慎使用</code></p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git clean</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 移除没有忽略的未跟踪文件</span></span>
+<span class="line"><span style="color:#A6ACCD;">git clean -f -d </span></span>
+<span class="line"><span style="color:#A6ACCD;">// 移除工作目录中所有未追踪的文件以及空的子目录</span></span>
+<span class="line"><span style="color:#A6ACCD;">git ckear -n</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 添加-n, 它将告诉你会删除什么</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h3 id="搜索" tabindex="-1">搜索 <a class="header-anchor" href="#搜索" aria-hidden="true">#</a></h3><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git grep -n gmtime_r</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 传递 -n 或 --line-number 选项数来输出 Git 找到的匹配行的行号</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h2 id="重写历史" tabindex="-1">重写历史 <a class="header-anchor" href="#重写历史" aria-hidden="true">#</a></h2><h3 id="修改最后一次提交-git-commit" tabindex="-1">修改最后一次提交 git commit <a class="header-anchor" href="#修改最后一次提交-git-commit" aria-hidden="true">#</a></h3><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git commit --amend</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 修改最后一次提交，一般用于cr之后的修改</span></span>
+<span class="line"><span style="color:#A6ACCD;">git commit --amend --no-edit</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 不用再次编辑commit 信息</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h3 id="修改多个提交-git-rebase" tabindex="-1">修改多个提交 git rebase <a class="header-anchor" href="#修改多个提交-git-rebase" aria-hidden="true">#</a></h3><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">$ git rebase -i HEAD~3</span></span>
+<span class="line"><span style="color:#A6ACCD;">pick f7f3f6d changed my name a bit</span></span>
+<span class="line"><span style="color:#A6ACCD;">pick 310154e updated README formatting and added blame</span></span>
+<span class="line"><span style="color:#A6ACCD;">pick a5f4a0d added cat-file</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 修改最近3次的提交</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 需要注意的是，这个是倒序排列的，最下面的是你最新的提交</span></span>
+<span class="line"><span style="color:#A6ACCD;">// 你可以将 pick 修改为 squash, 保留最下面的那个，这样3个commit 就会合并为一个commit</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><h3 id="移除文件" tabindex="-1">移除文件 <a class="header-anchor" href="#移除文件" aria-hidden="true">#</a></h3><p>从每一个提交中移除一个文件</p><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki"><code><span class="line"><span style="color:#A6ACCD;">git filter-branch --tree-filter &#39;rm -f passwords.txt&#39; HEAD</span></span>
+<span class="line"><span style="color:#A6ACCD;">// --tree-filter 选项在检出项目的每一个提交后运行指定的命令然后重新提交结果</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-cfb513e0 data-v-21f75714><div class="edit-info" data-v-21f75714><!----><div class="last-updated" data-v-21f75714><p class="VPLastUpdated" data-v-21f75714 data-v-18fe8fc2>Last updated: <time datetime="2023-01-30T08:10:59.000Z" data-v-18fe8fc2></time></p></div></div><div class="prev-next" data-v-21f75714><div class="pager" data-v-21f75714><a class="pager-link prev" href="/docs/%E6%8A%80%E6%9C%AF/git/git%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" data-v-21f75714><span class="desc" data-v-21f75714>Previous page</span><span class="title" data-v-21f75714>git的工作原理</span></a></div><div class="has-prev pager" data-v-21f75714><a class="pager-link next" href="/docs/%E6%BA%90%E7%A0%81/sentry" data-v-21f75714><span class="desc" data-v-21f75714>Next page</span><span class="title" data-v-21f75714>sentry</span></a></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-f44a984a data-v-9f24cc86><div class="container" data-v-9f24cc86><p class="message" data-v-9f24cc86>Released under the MIT License.</p><p class="copyright" data-v-9f24cc86>Copyright © 2019-present Evan You</p></div></footer><!--[--><!--]--></div></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"2a64fd2b\",\"技术_git_git的工作原理.md\":\"e887469b\",\"技术_git_git的常用命令.md\":\"0f29075c\",\"技术_webpack_loader.md\":\"867cab57\",\"源码_sentry.md\":\"aa0c629b\",\"算法_二叉树.md\":\"447a64d4\",\"算法_回溯算法.md\":\"5b4acacd\",\"设计模式_代理模式.md\":\"847ba46d\",\"设计模式_单例模式.md\":\"466faa36\",\"设计模式_策略模式.md\":\"8d7dc602\"}")</script>
     <script type="module" async src="/docs/assets/app.e9a19b08.js"></script>
     
   </body>
