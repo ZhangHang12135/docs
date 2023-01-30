@@ -265,3 +265,114 @@ $ git rebase --onto master server client
 // 选中在 client 分支里但不在 server 分支里的修改（即 C8 和 C9），将它们在 master 分支上重放
 ```
 
+## 小符号
+
+### 祖先引用 ^ 
+^ 会被解析为上一个提交
+
+~ 也可以理解为父提交
+
+HEAD~ === HEAD^
+
+**但是  ^ 后面添加一个数字来指明想要 哪一个 父提交，HEAD^2为 合并提交的第二父提交，并不是父提交的父提交**
+```
+git show HEAD^
+// 显示上一个提交
+git reset HEAD^
+// 回退到上一个版本
+git reset HEAD^^ || git reset HEAD~2
+// 回退到上两个版本
+```
+
+### 提交区间
+```
+git log master..experiment
+// 查看 experiment 分支中还有哪些提交尚未被合并入 master 分支
+
+$ git log origin/master..HEAD
+// 这个命令会输出在你当前分支中而不在远程 origin 中的提交
+
+$ git log master...experiment
+// master 或者 experiment 中包含的但不是两者共有的提交，你可以执行：
+```
+
+## 小工具
+
+### 交互暂存 git add -i
+[详细的看这里](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%9A%82%E5%AD%98)
+```
+git add -i
+// 会进入暂存的交互界面
+*** Commands ***
+  1: status	  2: update	  3: revert	  4: add untracked
+  5: patch	  6: diff	  7: quit	  8: help
+// 5 就是打补丁，可以拆分一个文件的不同提交
+```
+
+### 贮藏 git stash
+
+贮藏（stash）会处理工作目录的脏的状态——即跟踪文件的修改与暂存的改动——然后将未完成的修改保存到一个栈上， 而你可以在任何时候重新应用这些改动（甚至在不同的分支上）
+
+```
+git stash || git stash push
+// 推送你的修改到栈上， 正常只会包含暂存的，已修改的，跟踪文件
+git stash list
+// 查看你的所有stash
+git stash apply
+// 将栈顶的拿出来（也就是你最近的stash）
+git stash apply stash@{1}
+// 拿到第二个
+git stash pop
+// 拿出来之后，就删掉
+git stash -a
+// 贮藏 所有文件，包含没有被跟踪的，忽略的文件
+git stash branch testchange
+// 会将其stash 放到新的分支上，而不是当前分支
+git stash clear
+// 清空贮藏栈
+```
+
+### 清理工作目录 git clean
+`谨慎使用`
+```
+git clean
+// 移除没有忽略的未跟踪文件
+git clean -f -d 
+// 移除工作目录中所有未追踪的文件以及空的子目录
+git ckear -n
+// 添加-n, 它将告诉你会删除什么
+```
+
+### 搜索
+```
+git grep -n gmtime_r
+// 传递 -n 或 --line-number 选项数来输出 Git 找到的匹配行的行号
+
+```
+
+## 重写历史
+
+### 修改最后一次提交 git commit
+```
+git commit --amend
+// 修改最后一次提交，一般用于cr之后的修改
+git commit --amend --no-edit
+// 不用再次编辑commit 信息
+```
+
+### 修改多个提交 git rebase
+```
+$ git rebase -i HEAD~3
+pick f7f3f6d changed my name a bit
+pick 310154e updated README formatting and added blame
+pick a5f4a0d added cat-file
+// 修改最近3次的提交
+// 需要注意的是，这个是倒序排列的，最下面的是你最新的提交
+// 你可以将 pick 修改为 squash, 保留最下面的那个，这样3个commit 就会合并为一个commit
+```
+### 移除文件
+从每一个提交中移除一个文件
+```
+git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
+// --tree-filter 选项在检出项目的每一个提交后运行指定的命令然后重新提交结果
+```
