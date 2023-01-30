@@ -19,6 +19,12 @@ git config --global user.email "your email"
 ```
 git config --global core.editor xxx
 ```
+
+**换行符**
+windows的换行和mac不一样，你可以这样设置, 来关掉自动换行
+```
+$ git config --global core.autocrlf false
+```
 ### git help
 获取命令帮助
 ```
@@ -411,9 +417,20 @@ git merge -s ours xxx
 //  例如，假设你有一个分叉的 release 分支并且在上面做了一些你想要在未来某个时候合并回 master 的工作。 与此同时 master 分支上的某些 bugfix 需要向后移植回 release 分支。 你可以合并 bugfix 分支进入 release 分支同时也 merge -s ours 合并进入你的 master 分支 （即使那个修复已经在那儿了）这样当你之后再次合并 release 分支时，就不会有来自 bugfix 的冲突。
 ```
 
-**查看行提交**
+### 查看行提交
 ```
 git blame -L 5,8 a.js
 // 查看a.js文件5到8行的提交记录
 // 正常就是用vscode插件GitLens
 ```
+
+### `打包`
+bundle 命令会将 git push 命令所传输的所有内容打包成一个二进制文件， 你可以将这个文件通过邮件或者闪存传给其他人，然后解包到其他的仓库中。
+```
+git bundle create repo.bundle HEAD master
+// 会生成一个repo.bundle 文件
+// 该文件包含了所有重建该仓库 master 分支所需的数据。 在使用 bundle 命令时，你需要列出所有你希望打包的引用或者提交的区间
+$ git clone repo.bundle repo
+// 可以克隆出一个repo目录
+```
+
