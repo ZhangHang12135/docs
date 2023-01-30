@@ -139,6 +139,14 @@ $ git log --pretty=format:"%h %s" --graph
 ```
 git reset HEAD <file>
 // 这个命令会将暂存文件修改为未暂存状态
+git reset HEAD^
+// 回退到上一个版本
+git reset --soft HEAD^
+// 回退到 commit之前，add之后的状态
+git reset --mixed HEAD^
+// --mixed 是默认值，回退到add 之前的状态
+git reset --head HEAD^
+// 这个是危险操作，会回退工作区
 ```
 ### `git restore`
 现在取消暂存或者丢弃修改，git 会提示使用 git restore(也就是git status 提示的命令)
@@ -375,4 +383,37 @@ pick a5f4a0d added cat-file
 ```
 git filter-branch --tree-filter 'rm -f passwords.txt' HEAD
 // --tree-filter 选项在检出项目的每一个提交后运行指定的命令然后重新提交结果
+```
+
+### 合并冲突小技巧
+**忽略空白**
+
+```
+git merge -Xignore-space-change whitespace
+// 使用 -Xignore-all-space 或 -Xignore-space-change 选项。 第一个选项在比较行时 完全忽略 空白修改，第二个选项将一个空白符与多个连续的空白字符视作等价的。
+```
+
+**撤销合并**
+```
+git reset --hard HEAD~
+// 这个就是直接回退
+git revert -m 1 HEAD
+// 撤销上一次合并， 以当前分支为主
+// 1 是以当前分支为主， 2是合入的分支
+// 这个会产生一个新的commit
+// 这样有一个缺陷，就是无法将之前合入的再合入，只能再次revert当前才行
+```
+
+**虚假合并**
+```
+git merge -s ours xxx
+// 合并后与合并前我们的分支并没有任何区别。
+//  例如，假设你有一个分叉的 release 分支并且在上面做了一些你想要在未来某个时候合并回 master 的工作。 与此同时 master 分支上的某些 bugfix 需要向后移植回 release 分支。 你可以合并 bugfix 分支进入 release 分支同时也 merge -s ours 合并进入你的 master 分支 （即使那个修复已经在那儿了）这样当你之后再次合并 release 分支时，就不会有来自 bugfix 的冲突。
+```
+
+**查看行提交**
+```
+git blame -L 5,8 a.js
+// 查看a.js文件5到8行的提交记录
+// 正常就是用vscode插件GitLens
 ```
