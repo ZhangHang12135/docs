@@ -86,6 +86,15 @@ git commit -a
 git commit -am 'xxx'
 // 一般这样用， 相当于 git add && git commit -m 'x' ,需要注意，新文件不会提交
 ```
+### git cherry-pick
+挑选一个commit 放到当前分支
+```
+git cherry-pick <commitID || branchName>
+// 如果是分支名，就是拿最新的提交
+```
+
+### git reflog
+查看HEAD指向历史
 
 ### git rm
 移除文件
