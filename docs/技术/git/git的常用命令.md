@@ -145,6 +145,17 @@ $ git log --pretty=format:"%h %s" --graph
 ```
 [详细的占位符看这里](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2)
 
+### `git fsck --full`
+查看数据库对象， 如果不小心删掉了分支，可以从这里看到游离的commit对象。
+```
+$ git fsck --full
+Checking object directories: 100% (256/256), done.
+Checking objects: 100% (18/18), done.
+dangling blob d670460b4b4aece5915caf5c68d12f560a9fe3e4
+dangling commit ab1afef80fac8e34258ff41fc1b867c702daa24b
+dangling tree aea790b9a58f6cf6f2804eeac9f0abbe9631e4c9
+dangling blob 7108f7ecb345ee9d0084193f147cdad4d2998293
+```
 ## 撤销操作
 ### git commit --amend
 修补提交，一般在commit 之后需要再次修改文件的时候使用。只会产生一次commit记录。
