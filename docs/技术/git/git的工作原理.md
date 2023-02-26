@@ -38,3 +38,24 @@ Git 将文件标记为三种状态：
 > 1. 在工作区中修改文件。
 > 2. 将你想要下次提交的更改选择性地暂存，这样只会将更改的部分添加到暂存区。(git add xxx)
 > 3. 提交更新，找到暂存区的文件，将快照永久性存储到 Git 目录。(git commit xxx)
+
+# `Git 内部原理`
+## git 内部文件
+.git 文件内部文件
+```
+config   // config 文件包含项目特有的配置选项。
+description   // description 文件仅供 GitWeb 程序使用，我们无需关心
+HEAD       //  HEAD 文件指向目前被检出的分支
+hooks/     //  hooks 目录包含客户端或服务端的钩子脚本（hook scripts）
+info/      // info 目录包含一个全局性排除（global exclude）文件， 用以放置那些不希望被记录在 .gitignore 文件中的忽略模式
+objects/   // objects 目录存储所有数据内容
+refs/      // refs 目录存储指向数据（分支、远程仓库和标签等）的提交对象的指针
+index     // 这个是后续创建的，index 文件保存暂存区信息
+```
+
+## Git 对象
+Git 是一个内容寻址文件系统。
+
+这意味着，Git 的核心部分是一个简单的键值对数据库（key-value data store）
+
+
