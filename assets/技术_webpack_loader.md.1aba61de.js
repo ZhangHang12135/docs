@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as t}from"./app.035b6d40.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"技术/webpack/loader.md","lastUpdated":1674875932000}'),r={name:"技术/webpack/loader.md"};function o(c,s,n,d,p,_){return t(),a("div")}const m=e(r,[["render",o]]);export{i as __pageData,m as default};
