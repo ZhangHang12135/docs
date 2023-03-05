@@ -244,7 +244,7 @@ $ git tag -d v1.4-lw
 // 删除标签Deleted tag 'v1.4-lw' (was e7d5add)
 ```
 ## git 别名
-```
+```sh
 $ git config --global alias.co checkout
 $ git config --global alias.br branch
 $ git config --global alias.ci commit
@@ -285,7 +285,7 @@ git merge testing
 
 ### `git rebase`
 [变基操作](https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA)
-,这是一个很危险的操作
+这是一个很危险的操作
 
 它的原理是首先找到这两个分支（即当前分支 experiment、变基操作的目标基底分支 master） 的最近共同祖先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件， 然后将当前分支指向目标基底 C3, 最后以此将之前另存为临时文件的修改依序应用
 ```

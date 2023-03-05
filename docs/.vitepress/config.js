@@ -50,9 +50,28 @@ export default {
                     }
                   ]
                 },
+                { 
+                  text: 'webpack',
+                  items: [
+                    {
+                      text: 'webpack 普通配置',
+                      link: '/技术/webpack/通用配置'
+                    },
+                    {
+                      text: 'loader',
+                      link: '/技术/webpack/loader'
+                    },
+                  ]
+                },
                 // { text: '动态规划', link: '/算法/动态规划' },
               ],
             },
+            {
+              text: '问题',
+              items: [
+                { text: 'node', link: '/问题/node' },
+              ],
+          },
             {
               text: '源码',
               items: [
