@@ -1,0 +1,7 @@
+import{_ as s,c as a,o as n,d as e}from"./app.3b224b8c.js";const h=JSON.parse('{"title":"node相关问题","description":"","frontmatter":{},"headers":[],"relativePath":"问题/node.md","lastUpdated":1678023033000}'),l={name:"问题/node.md"},o=e(`<h1 id="node相关问题" tabindex="-1">node相关问题 <a class="header-anchor" href="#node相关问题" aria-hidden="true">#</a></h1><ol><li>开发依赖和生产依赖有什么区别？</li></ol><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki material-theme-palenight"><code><span class="line"><span style="color:#A6ACCD;">**对于前端项目，没有任何区别**</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">因为我们需要的只是最后的产物。不需要关心他是开发依赖还是生产依赖</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div><ol start="2"><li>本地debugger ts代码</li></ol><div class="language-"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki material-theme-palenight"><code><span class="line"><span style="color:#A6ACCD;">安装vscode 插件 Typescript Debugger, 直接按F5 选择ts-node即可</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span>
+<span class="line"><span style="color:#A6ACCD;">**注意：需要使用npm 本地安装ts-node， yarn3会报错找不到路径**</span></span>
+<span class="line"><span style="color:#A6ACCD;"></span></span></code></pre></div>`,5),t=[o];function p(c,i,r,d,_,C){return n(),a("div",null,t)}const u=s(l,[["render",p]]);export{h as __pageData,u as default};
