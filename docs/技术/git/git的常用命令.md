@@ -249,6 +249,9 @@ $ git config --global alias.co checkout
 $ git config --global alias.br branch
 $ git config --global alias.ci commit
 $ git config --global alias.st status
+# 设置cr别名
+# 需要注意，如果需要执行脚本，需要前面带有 ! 
+$ git config --global alias.cr '!git push origin HEAD:refs/for/$(git branch --show-current)'
 ```
 ## git 分支
 
