@@ -1,7 +1,7 @@
 # Sentry 源码
 sentry 是一个错误监控。
 这里主要分析sentry-javascript/browser
-
+![Sentry 初始化](/sentry/Sentry.png)
 ## 初始化sdk
 ```ts
 export function init(options: BrowserOptions = {}): void {
