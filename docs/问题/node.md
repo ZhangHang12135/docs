@@ -13,3 +13,10 @@
 
 **注意：需要使用npm 本地安装ts-node， yarn3会报错找不到路径**
 ```
+
+3. node 浏览器调试 文件
+```sh
+# 这个其实就是node 运行
+node --inspect-brk ./node_modules/webpack-cli/bin/cli.js
+node --inspect-brk ./a.js
+```

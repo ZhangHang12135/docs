@@ -61,6 +61,10 @@ export default {
                       text: 'loader',
                       link: '/技术/webpack/loader'
                     },
+                    {
+                      text: 'plugin',
+                      link: '/技术/webpack/plugin'
+                    },
                   ]
                 },
                 // { text: '动态规划', link: '/算法/动态规划' },

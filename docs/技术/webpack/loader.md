@@ -43,6 +43,7 @@ module.exports = {
 **meta** 是其他loader传入的任意数据，一般传入AST树
 
 ## loader 的分类
+关于分类，还有一种，就是pre, normal, inline, post。 可以理解为执行顺序。一般我们写的都是normal。可以根据 [Rule.enforce](https://www.webpackjs.com/configuration/module#ruleenforce) 来设置loader 的执行
 ### 同步loader
 也就是我们上面所写的loader, 实际应用中很少用到这样的。
 
@@ -107,6 +108,8 @@ module.exports = function(content) {
 
 ### file-loader
 这个在webpack4很常用，webpack 5 之后，这个loader就已经内置了
+
+这个我们就简单的写一个，导出文件到指定目录
 ```js
 const loaderUtils = require('loader-utils');
 
