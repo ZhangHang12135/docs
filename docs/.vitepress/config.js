@@ -95,6 +95,7 @@ export default {
                 items: [
                   { text: '单例模式', link: '/设计模式/单例模式' },
                   { text: '策略模式', link: '/设计模式/策略模式' },
+                  { text: '代理模式', link: '/设计模式/代理模式' },
                 ],
             },
             {
