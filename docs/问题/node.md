@@ -20,3 +20,14 @@
 node --inspect-brk ./node_modules/webpack-cli/bin/cli.js
 node --inspect-brk ./a.js
 ```
+
+4. node 项目 加载esm 依赖包
+  a. 项目基础为ts, 使用ts 编写，无法解决问题。不论是将最后的产出变成commjs,还是esm ,都无法解决问题。
+  b. ts-node 无法识别package.json 中type 为 module 的ts文件
+  c. 使用mjs 解决问题
+5. ts 项目如何获取json 文件。
+```
+// 如果是commonjs 写法，可以直接require动态引入
+// 利用fs 读文件内容
+fs.readFileSync(getSchemaPath(), 'utf-8')
+```
