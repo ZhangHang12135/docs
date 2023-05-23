@@ -31,3 +31,25 @@ node --inspect-brk ./a.js
 // 利用fs 读文件内容
 fs.readFileSync(getSchemaPath(), 'utf-8')
 ```
+
+6. babel 处理不了ts 文件
+默认情况。babel只处理js文件，需要添加命令参数 --extensions ，指定扩展名
+```
+babel src --out-dir dist --extensions .ts
+```
+```
+// .babelrc
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  }
+```
