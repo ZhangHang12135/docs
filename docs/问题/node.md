@@ -31,3 +31,32 @@ node --inspect-brk ./a.js
 // 利用fs 读文件内容
 fs.readFileSync(getSchemaPath(), 'utf-8')
 ```
+
+6. babel 处理不了ts 文件
+默认情况。babel只处理js文件，需要添加命令参数 --extensions ，指定扩展名
+```
+babel src --out-dir dist --extensions .ts
+```
+```
+// .babelrc
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-typescript"
+    ]
+  }
+```
+
+7. tsc 命令处理不同配置文件
+-p 或者 --project 可以指定tsconfig.json文件，但是无法处理单一文件，只能整个项目一起编译
+创建一个tsconfig.build.json 文件，用于打包编译
+```
+tsc --p tsconfig.build.json
+```
