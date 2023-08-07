@@ -55,6 +55,7 @@ flag2: 19Qingfeng wang haoyu
 - AsyncSeries[xx] 异步串行, 具体有 AsyncSeriesHook, AsyncSeriesBailHook, AsyncSeriesLoopHook, AsyncSeriesWaterfallHook
 - AsyncParallel[xx] 异步并行， 具体有 AsyncParallelHook, AsyncParallelBailHook
 ### 工作流程分类
+![工作流程分类](/tapable/tapable-work.webp)
 - **Basic Hook** : 基本类型的钩子，它仅仅执行钩子注册的事件，并不关心每个被调用的事件函数返回值如何。
 - **Waterfall** : 瀑布类型的钩子，瀑布类型的钩子和基本类型的钩子基本类似，唯一不同的是瀑布类型的钩子会在注册的事件执行时将事件函数执行非 undefined 的返回值传递给接下来的事件函数作为参数。
 - **Bail** : 保险类型钩子，保险类型钩子在基础类型钩子上增加了一种保险机制，如果任意一个注册函数执行返回非 undefined 的值，那么整个钩子执行过程会立即中断，之后注册事件函数就不会被调用了。
@@ -97,7 +98,7 @@ hook.intercept({
 创建hook的一个对象，来管理
 ### MultiHook
 创建批量的hook, 来统一处理
-![工作流程分类](/tapable/tapable-work.webp)
+
 
 参考文献：
 

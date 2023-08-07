@@ -12,7 +12,7 @@ webpack 对外暴露了很多的hooks方法，你可以开发插件，在指定�
 Tapable 为 webpack 提供了统一的插件接口（钩子）类型定义，它是 webpack 的核心功能库。
 
 它对外暴露了 tap，tapAsync 和 tapPromise 等方法， 插件可以使用这些方法向 webpack 中注入自定义构建的步骤，这些步骤将在构建过程中触发。
-[Tapable 源码分析](/源码/tappable)
+[Tapable 源码分析](/源码/tapable)
 
 ## plugin 核心构建
 ### Compiler
