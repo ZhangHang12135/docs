@@ -65,6 +65,10 @@ export default {
                       text: 'plugin',
                       link: '/技术/webpack/plugin'
                     },
+                    { 
+                      text: 'tapable',
+                      link: '/技术/webpack/tapable'
+                    },
                   ]
                 },
                 // { text: '动态规划', link: '/算法/动态规划' },
@@ -80,7 +84,7 @@ export default {
               text: '源码',
               items: [
                 { text: 'sentry', link: '/源码/sentry' },
-                // { text: '动态规划', link: '/算法/动态规划' },
+                { text: 'tapable', link: '/源码/tapable' },
               ],
           },
             {

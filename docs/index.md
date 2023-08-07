@@ -6,3 +6,7 @@
 我的个人博客
 
 [vip视频解析](https://zhanghang12135.github.io/freevideo/)
+
+[react](https://zh-hans.react.dev/learn)
+
+[vue](https://cn.vuejs.org/)
